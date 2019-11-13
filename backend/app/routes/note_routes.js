@@ -1,5 +1,4 @@
-let ObejctID = require('mongodb').ObjectID
-
+let ObejctID      = require('mongodb').ObjectID
 
 module.exports = (app, db) => {
 
@@ -12,7 +11,7 @@ module.exports = (app, db) => {
             } else {
                 res.send(item)
             }
-        })
+        }) 
     })
 
     
