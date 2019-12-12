@@ -2,19 +2,16 @@ import React, {useState, useEffect} from 'react'
 import './App.css'
 import qs from 'qs'
 import axios from  'axios'
+import Card from 'react-bootstrap/Card'
 
 function App() {
 
   const [notes, setNotes] = useState([])
   
   async function getNotesAndPush() {
-    const note = []
     try {
-    const response = await axios.get('http://localhost:5000/notes')
-    response.data.forEach(item => {
-        note.push(item.text)
-      })
-      setNotes(note)
+      const response = await axios.get('http://localhost:5000/notes')
+      setNotes(response.data)
     } catch(err) {
       console.error(err.message)
     }
@@ -43,23 +40,16 @@ function App() {
 
     return ( 
       <div>
-        <ul>
-          {notes.map((note, id) =>{
-              return(<li key={id}>{note}</li>)
-            })}
-        </ul>
-        <form onSubmit = {postNote}/>
-            <label htmlFor='title'>Título</label>
-            <input id='title'
-                    type='text'
-                    name='title'
-                    placeholder='titulo'/>
-            <label htmlFor='note'>Nota</label>
-            <input id='nota'
-                    type='text'
-                    name='note'
-                    placeholder='Nota'/> 
-             <button type='submit' onClick={postNote}>Enviar</button>
+        {notes.map((item, id) => 
+        <Card style={{ width: '18rem', gravity: 'center' }} className = 'card-block'>
+          <Card.Body>
+            <Card.Title>{item.title}</Card.Title>
+            <Card.Text>{item.text}</Card.Text>
+            <Card.Link href="#">Edit</Card.Link>
+            <Card.Link href="#">Delete</Card.Link>
+          </Card.Body>
+        </Card>)
+        } 
       </div>
     )
 }
