@@ -20,10 +20,14 @@ module.exports = (app, db) => {
         if (e) {
             return next(e)
         }
+        if(results.length == 0) {
+            res.send({"error" : "404"})
+            return
+        }
         res.send(results)
         console.info('Notes were fetched')
         })
-    })
+    }) 
 
     app.delete('/notes/:id', (req, res) => { 
         const ID = req.params.id
@@ -35,6 +39,13 @@ module.exports = (app, db) => {
                 res.send({'code' : '200'})
                 console.info(`Note ${ID} deleted`)
             }
+        })
+    })
+
+    app.delete('/notes', (req, res) => {
+        db.collection('notes').deleteMany({})
+        res.send({
+            "message" : "all notes deleted"
         })
     })
     

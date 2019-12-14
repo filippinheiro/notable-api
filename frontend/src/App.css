@@ -7,10 +7,6 @@
   pointer-events: none;
 }
 
-#title{
-  orientation: portrait;
-}
-
 #notr {
   orientation: landscape;
   position: relative;
