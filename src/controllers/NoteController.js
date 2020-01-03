@@ -13,6 +13,13 @@ module.exports = {
         return response.json(note)
     },
 
+    async filter(request, response) {
+        const {keyword} = request.query
+        var regex = new RegExp(keyword, 'i')
+        const notes = await Note.find({$or: [{content: regex}, {title: regex}]}, (error, query) => query)
+        return response.json(notes)
+    },
+
     async store(request, response) {
         const newNoteInfo = request.body
         const newNoteObject = await Note.create(newNoteInfo)
