@@ -5,30 +5,12 @@ It's very simple and easy to use, you can delete, create, update, show details a
 
 ## Settings for contributing
 
-(You can use a AtlasDB account as I am doing)
-
 1. Fork the repository
 2. rum `npm install` on the project's root folder to install the depencies
-3. pull a mongo docker image using `docker pull mongo`
-4. create the database config file inside a config folder (Example)
-
-```
-const mongoose = require('mongoose')
-
-const db = mongoose.connect('mongodb://localhost:27017/notableapi', {
-    useNewUrlParser: true
-})
-
-module.exports = db
-
-```
+3. set up your .env file with the PORT and mongodb DATABASE_URL you may like (docker image, AtlasDB, you choose)
 After that everything should work just fine
 
-
-
 For using the api for your app you can find the endpoints on [https://notable-note-api.herokuapp.com/api]
-
-
 
 ## Endpoints
 ```
@@ -89,6 +71,9 @@ PUT /notes/:id updates a note
 DELETE /notes/:id deletes a note and return 200 ok
     
     no body needed
+
+```
+
 
 
 It is my first time building an API in node, so it's quite simple, so it's very open to sugsestions and
