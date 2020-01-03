@@ -9,10 +9,11 @@
   "author": "Filipe Pinheiro",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongodb": "^3.3.4"
+    "mongoose": "^5.8.4",
+    "mongoose-paginate": "^5.0.3",
+    "require-dir": "^1.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
