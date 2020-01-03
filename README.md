@@ -93,4 +93,4 @@ DELETE /notes/:id deletes a note and return 200 ok
 
 It is my first time building an API in node, so it's quite simple, so it's very open to sugsestions and
 
-thank you for reading
+thank you for reading :)
